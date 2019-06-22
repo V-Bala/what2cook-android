@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">What2Cook</string>
+
+    <string name="APP_ID">425ce525</string>
+    <string name="APP_KEY">4f33d222f3e99d09933fe0d8fde71e23</string>
+    <string name="BASE_URL">https://api.edamam.com</string>
+    <string name="SEARCH_URL">https://api.edamam.com/search?q"</string>
+</resources>

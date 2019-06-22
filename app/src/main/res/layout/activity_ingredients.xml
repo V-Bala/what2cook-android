@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/LightSalmon"
+    tools:context=".view.ingredients.IngredientsActivity">
+
+    <TextView
+        android:id="@+id/ingredientsBannerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Choose Ingredients"
+        android:textSize="35dp" />
+
+    <TableLayout
+        android:id="@+id/ingredientsTableLayout"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:id="@+id/ingredientsTableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/meatsButton"
+                android:textColor="#eeeeee"
+                android:background="@drawable/chicken"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:textSize="150px"
+                android:textStyle="bold"
+                android:text="MEATS" />
+
+            <Button
+                android:id="@+id/vegsButton"
+                android:textColor="#eeeeee"
+                android:background="@drawable/vegetables"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:textSize="150px"
+                android:textStyle="bold"
+                android:text="VEGGIES" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/ingredientsTableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2.25">
+
+            <Button
+                android:id="@+id/grainsButton"
+                android:textColor="#eeeeee"
+                android:background="@drawable/grains"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:textSize="150px"
+                android:textStyle="bold"
+                android:text="GRAINS" />
+
+            <Button
+                android:id="@+id/spicesButton"
+                android:background="@drawable/spices"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:textSize="150px"
+                android:textStyle="bold"
+                android:textColor="#eeeeee"
+                android:text="SPICES" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/submitIngredientsButton"
+        android:backgroundTint="@color/LightGrey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:onClick="startRecipesOverviewActivity"
+        android:text="View Recipe Ideas" />
+
+</RelativeLayout>

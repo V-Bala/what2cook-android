@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DefaultActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".view.profile.LoginActivity">
+
+    <FrameLayout
+        android:id="@+id/loginScreenContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/bannerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginScreenContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Welcome"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="200dp"
+        android:focusable="true"
+        android:hint="Username"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usernameEditText"
+        android:layout_alignEnd="@+id/usernameEditText"
+        android:layout_alignRight="@+id/usernameEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000" />
+
+    <Button
+        android:id="@+id/loginButton"
+        style="@style/DefaultButtonStyle"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="-152dp"
+        android:layout_marginEnd="-147dp"
+        android:layout_marginRight="-147dp"
+        android:layout_marginBottom="322dp"
+        android:layout_toStartOf="@+id/bannerTextView"
+        android:layout_toLeftOf="@+id/bannerTextView"
+        android:onClick="onClickLogin"
+        android:text="LOGIN"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        style="@style/DefaultButtonStyle"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-148dp"
+        android:layout_marginLeft="-148dp"
+        android:layout_marginBottom="264dp"
+        android:layout_toEndOf="@+id/bannerTextView"
+        android:layout_toRightOf="@+id/bannerTextView"
+        android:onClick="onClickRegister"
+        android:text="SIGN-UP"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/loginLogoImage"
+        android:src="@drawable/loginlogo"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="-120dp"
+        android:layout_marginTop="470dp"
+        android:layout_toEndOf="@+id/signUpButton"
+        android:layout_toRightOf="@+id/signUpButton"
+        tools:ignore="MissingConstraints" />
+
+</RelativeLayout>
