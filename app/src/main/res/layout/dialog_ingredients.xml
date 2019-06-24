@@ -15,9 +15,10 @@
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            style="@style/DefaultButtonStyle"
+            style="@style/AlertDialogCustomTheme"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:textColor="@color/Navy"
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
         </RadioGroup>

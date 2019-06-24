@@ -21,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db = new DbHelper(this);
         reg = (Button)findViewById(R.id.btnReg);
@@ -49,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity{
         if(username.isEmpty() || pass.isEmpty()){
             displayToast("Username/password field empty");
         }else{
-            db.addUser(username,pass);
+            long userId = db.addUser(username,pass);
             displayToast("User registered");
             finish();
         }

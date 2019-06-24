@@ -14,8 +14,15 @@ public class Session {
         editor = prefs.edit();
     }
 
-    public void setLoggedin(boolean logggedin){
+    public void setLoggedin(
+            boolean logggedin,
+            long userId,
+            String username,
+            String password){
         editor.putBoolean("loggedInmode",logggedin);
+        editor.putLong("userId", userId);
+        editor.putString("username", username); // Storing string
+        editor.putString("password", password); // Storing string
         editor.commit();
     }
 

@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.what2cook.R;
 import com.example.what2cook.view.recipes.RecipesListActivity;
@@ -30,6 +33,8 @@ public class IngredientsActivity extends AppCompatActivity {
     Button spicesButton;
     Button submitIngredientsButton;
     List selectedItems;
+    ListView ingredientsListView;
+    private ArrayAdapter<String> arrayAdapter;
 
 
     private Set<String> MASTER_INGREDIENTS_SET;
@@ -44,6 +49,7 @@ public class IngredientsActivity extends AppCompatActivity {
         // SET LAYOUT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredients);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // INITIALIZE BUTTONS
         meatsButton = findViewById(R.id.meatsButton);
@@ -92,6 +98,19 @@ public class IngredientsActivity extends AppCompatActivity {
     }
 
     /**
+     *
+     * @param view
+     */
+    public void viewShoppingCart(View view) {
+        Intent intent = new Intent(this, ShoppingCartActivity.class);
+        ArrayList<String> ingredientsList = new ArrayList<>();
+        ingredientsList.addAll(MASTER_INGREDIENTS_SET);
+        intent.putStringArrayListExtra("INGREDIENTS_LIST", ingredientsList);
+        startActivityForResult(intent, 0);
+        //finish();
+    }
+
+    /**
      * Starts the {@link RecipesListActivity}
      * Called when the user taps the submit button
      *
@@ -106,6 +125,19 @@ public class IngredientsActivity extends AppCompatActivity {
 
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+            }
+            else {
+                // failed to un-install
+            }
+        }
     }
 
     /**
@@ -124,8 +156,8 @@ public class IngredientsActivity extends AppCompatActivity {
             case "MEAT":
                 customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
                 multiChoiceItems = getResources().getStringArray(R.array.dialog_meats_array);
-                dialog = new AlertDialog.Builder(CONTEXT)
-                        .setTitle("Select " + type)
+                dialog = new AlertDialog.Builder(CONTEXT, R.style.AlertDialogCustomTheme)
+                        .setTitle("Select " + type + "S")
                         .setView(customDialogView)
                         .setMultiChoiceItems(multiChoiceItems, null,
                                 new DialogInterface.OnMultiChoiceClickListener() {
@@ -158,8 +190,8 @@ public class IngredientsActivity extends AppCompatActivity {
             case "VEGETABLE":
                 customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
                 multiChoiceItems = getResources().getStringArray(R.array.dialog_vegs_array);
-                dialog = new AlertDialog.Builder(CONTEXT)
-                        .setTitle("Select " + type)
+                dialog = new AlertDialog.Builder(CONTEXT, R.style.AlertDialogCustomTheme)
+                        .setTitle("Select " + type + "S")
                         .setView(customDialogView)
                         .setMultiChoiceItems(multiChoiceItems, null,
                                 new DialogInterface.OnMultiChoiceClickListener() {
@@ -192,8 +224,8 @@ public class IngredientsActivity extends AppCompatActivity {
             case "GRAIN":
                 customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
                 multiChoiceItems = getResources().getStringArray(R.array.dialog_grains_array);
-                dialog = new AlertDialog.Builder(CONTEXT)
-                        .setTitle("Select " + type)
+                dialog = new AlertDialog.Builder(CONTEXT, R.style.AlertDialogCustomTheme)
+                        .setTitle("Select " + type + "S")
                         .setView(customDialogView)
                         .setMultiChoiceItems(multiChoiceItems, null,
                                 new DialogInterface.OnMultiChoiceClickListener() {
@@ -226,8 +258,8 @@ public class IngredientsActivity extends AppCompatActivity {
             case "SPICE":
                 customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
                 multiChoiceItems = getResources().getStringArray(R.array.dialog_spices_array);
-                dialog = new AlertDialog.Builder(CONTEXT)
-                        .setTitle("Select " + type)
+                dialog = new AlertDialog.Builder(CONTEXT, R.style.AlertDialogCustomTheme)
+                        .setTitle("Select " + type + "S")
                         .setView(customDialogView)
                         .setMultiChoiceItems(multiChoiceItems, null,
                                 new DialogInterface.OnMultiChoiceClickListener() {
@@ -259,4 +291,15 @@ public class IngredientsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }
 }

@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.what2cook.R;
 import com.example.what2cook.database.DbHelper;
-import com.example.what2cook.view.ingredients.IngredientsActivity;
 
 /**
  * Class
@@ -34,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         bannerTextView = findViewById(R.id.bannerTextView);
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
@@ -44,7 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         db = new DbHelper(this);
         session = new Session(this);
         if(session.loggedin()) {
-            startActivity(new Intent(LoginActivity.this, IngredientsActivity.class));
+            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+            startActivity(intent);
             finish();
         }
     }
@@ -60,12 +62,16 @@ public class LoginActivity extends AppCompatActivity {
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
-        if (db.getUser(username, password)) {
+        if (db.getUser(username, password) > 0) {
             // Success user was able to login
-            session.setLoggedin(true);
-            Intent intent = new Intent(this, IngredientsActivity.class);
+            long userId = db.getUser(username, password);
+            session.setLoggedin(true, userId, username, password);
+            Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
             finish();
+//            Intent intent = new Intent(this, IngredientsActivity.class);
+//            startActivity(intent);
+//            finish();
         } else {
             displayToast("Wrong username/password");
         }

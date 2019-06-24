@@ -5,18 +5,16 @@
     android:orientation="vertical"
     android:background="@color/DarkGray">
 
-    <Button
-        android:id="@+id/viewProfileActivityButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onOpenProfileActivtyClick"
-        android:text="View User Profile" />
-
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/listView"
+        android:id="@+id/ingredientsListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/closeShoppingCartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/DarkGray" />
+        android:text="Keep Shopping for Ingredients"
+        android:onClick="closeShoppingCartActivity" />
+
 </LinearLayout>
-
-

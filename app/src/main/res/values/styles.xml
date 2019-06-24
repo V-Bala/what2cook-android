@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -6,8 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
 
+    <style name="AlertDialogCustomTheme" parent="android:Theme.Material.Dialog.Alert"
+        tools:targetApi="lollipop">
+    </style>
+
+    <style name="TextViewTheme" parent="android:ThemeOverlay.Material.Dark"
+        tools:targetApi="lollipop">
+    </style>
 
     <style name="DefaultButtonTextColor" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#eeeeee</item>
